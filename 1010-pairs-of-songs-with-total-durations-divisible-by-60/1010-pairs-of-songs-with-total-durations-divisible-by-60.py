@@ -10,7 +10,6 @@ class Solution(object):
             i %= 60
             count += hashtable[60-i] if i else 0
             hashtable[i] += 1
-            print(count)
         count += (hashtable[0]**2 - hashtable[0]) // 2
         return count
         
