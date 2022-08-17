@@ -11,9 +11,10 @@ public:
             }
         }
         
-        int clean_str_size = clean_str.size();
-        for (int i = 0; i < clean_str_size/2; ++i) {
-            if (clean_str[i] != clean_str[clean_str_size - i - 1]) {
+        int clean_str_size = clean_str.size() - 1;
+        int end = clean_str.size() / 2;
+        for (int i = 0; i < end; ++i) {
+            if (clean_str[i] != clean_str[clean_str_size - i]) {
                 return false;
             }
         }
