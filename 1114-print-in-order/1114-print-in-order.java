@@ -1,6 +1,8 @@
 class Foo {
 
-    private int printCount = 1;
+    // Same instance of Foo passed to 3 different threads
+    // Therefore static variable is not required, instance variable suffices
+    private volatile int printCount = 1;
     
     public Foo() {
         
