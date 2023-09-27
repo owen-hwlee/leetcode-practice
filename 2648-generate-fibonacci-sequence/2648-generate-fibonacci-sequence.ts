@@ -5,7 +5,7 @@ function* fibGenerator(): Generator<number, any, number> {
     while (true) {
         yield current;
         
-        const n = next;
+        const n: number = next;
         next += current;
         current = n;
     }
