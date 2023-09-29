@@ -1,9 +1,9 @@
 class Solution {
 public:
     bool isMonotonic(vector<int>& nums) {
-        const int size = nums.size();
+        const size_t size = nums.size();
 
-        if (size == 1 || size == 2) {
+        if (size <= 2) {
             // must be monotone
             return true;
         }
@@ -11,7 +11,7 @@ public:
         bool is_decr = true;
         bool is_incr = true;
 
-        for (int i = 1; i < size; ++i) {
+        for (size_t i = 1; i < size; ++i) {
             if (nums[i - 1] < nums[i]) {
                 is_decr = false;
             }
@@ -20,7 +20,7 @@ public:
             }
             
             if (!is_decr && !is_incr) {
-                // both boolean flag false means array has increase and decrease hence no longer monotone
+                // both boolean flag false means array contains both increase and decrease hence no longer monotone
                 return false;
             }
         }
