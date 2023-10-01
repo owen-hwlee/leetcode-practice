@@ -22,7 +22,7 @@ impl Solution {
         }
         swap_char(&mut s, &i, &j);
 
-        unsafe { String::from_utf8_unchecked(s) }
-        // String::from_utf8(s).unwrap()
+        // unsafe { String::from_utf8_unchecked(s) }
+        String::from_utf8(s).unwrap()
     }
 }
