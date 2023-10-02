@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool winnerOfGame(string colors) {
+    bool winnerOfGame(const string& colors) {
         // pieces can only be removed when they are between pieces of the same colour
         // if a contiguous subsequence has n consecutive pieces of the same colour
         // (n - 2) pieces can be taken away, of course given that n >= 3
@@ -10,6 +10,10 @@ public:
         // or to remove one more variable, count difference between num for Alice and Bob
         // since Alice moves first, Alice can only win if the diff > 0, else Bob wins
 
+        if (colors.size() < 3) {
+            return false;
+        }
+
         int turn_diff = 0;      // num_alice - num_bob, +ve -> Alice wins
         int count = 1;
         char curr = colors[0];
@@ -18,8 +22,7 @@ public:
         for (size_t i = 1; i < size; ++i) {
             const char& c = colors[i];
             if (c == curr) {
-                ++count;
-                if (count >= 3) {
+                if (++count >= 3) {
                     turn_diff += (c == 'A') ? 1 : -1;
                 }
             } else {
